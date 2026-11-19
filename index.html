@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stigma Tattoo Bar — Tattoo shop &amp; bar in Orlando, FL</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:#f6f1e8; color:#241d16; }
+  .topbar { position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:12px 18px; background:#14100c; color:#fff; box-shadow:0 2px 14px rgba(20,12,4,.4); }
+  .brand { font-size:19px; font-weight:bold; letter-spacing:.4px; }
+  .callbtn { display:flex; align-items:center; gap:7px; background:#b8892e; color:#fff; text-decoration:none; padding:9px 14px; border-radius:999px; font-family:Arial,sans-serif; font-size:14px; font-weight:bold; }
+  .callbtn svg { width:16px; height:16px; }
+  nav.icons { display:flex; justify-content:space-around; background:#14100c; padding:4px 8px 12px; position:sticky; top:53px; z-index:19; }
+  nav.icons a { color:#fff; text-decoration:none; font-family:Arial,sans-serif; font-size:11px; text-align:center; opacity:.92; }
+  nav.icons svg { width:23px; height:23px; display:block; margin:0 auto 3px; }
+
+  /* ---------- HERO ---------- */
+  .hero { position:relative; overflow:hidden; color:#fff; text-align:center;
+    background:#14100c url('assets/gen-studio-interior.jpg') center/cover no-repeat; }
+  .hero::before { content:''; position:absolute; inset:0; background:linear-gradient(165deg, rgba(16,11,7,.9), rgba(30,22,14,.76) 55%, rgba(64,44,16,.68)); z-index:0; }
+  .hero-in { position:relative; z-index:2; max-width:860px; margin:0 auto; padding:34px 22px 40px; }
+  .herorev { max-width:640px; margin:0 auto 26px; background:rgba(10,7,4,.5); border:1px solid rgba(255,255,255,.35);
+    border-radius:16px; padding:18px 22px; backdrop-filter:blur(3px); }
+  .hr-stars { color:#ffd34d; letter-spacing:3px; font-size:15px; margin-bottom:8px; }
+  .hr-text { font-style:italic; font-size:16.5px; line-height:1.55; }
+  .hr-name { font-family:Arial,sans-serif; font-size:12.5px; opacity:.85; margin-top:9px; }
+  .hero h1 { font-size:34px; line-height:1.15; margin-bottom:10px; text-shadow:0 2px 18px rgba(0,0,0,.45); }
+  .hero .tag { font-family:Arial,sans-serif; font-size:15px; opacity:.94; margin-bottom:16px; }
+  .ratepill { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.35); padding:8px 16px; border-radius:999px; font-family:Arial,sans-serif; font-size:14px; }
+  .ratepill .st { color:#ffd34d; letter-spacing:2px; }
+  .heroimg { max-width:680px; margin:26px auto 0; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.35);
+    box-shadow:0 18px 44px rgba(0,0,0,.5); }
+  .heroimg img { width:100%; height:340px; object-fit:cover; display:block; }
+  @media (max-width:760px){ .heroimg img{ height:230px; } }
+
+  section { padding:34px 22px; max-width:920px; margin:0 auto; }
+  h2 { font-size:24px; margin-bottom:8px; text-align:center; color:#14100c; }
+  .sub { text-align:center; font-family:Arial,sans-serif; font-size:14px; opacity:.75; margin-bottom:20px; }
+  .bandimg { height:210px; overflow:hidden; position:relative; }
+  .bandimg img { width:100%; height:100%; object-fit:cover; display:block; }
+  .bandimg::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(16,11,7,.18), rgba(16,11,7,0) 40%, rgba(16,11,7,.22)); }
+  @media (max-width:760px){ .bandimg{ height:150px; } }
+
+  /* ---------- SERVICES ---------- */
+  .svcgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+  .svc { background:#ffffff; border:1px solid #e3d9c6; border-radius:16px; overflow:hidden; box-shadow:0 4px 18px rgba(20,16,12,.06); }
+  .svc .svcimg { height:165px; overflow:hidden; }
+  .svc .svcimg img { width:100%; height:100%; object-fit:cover; display:block; }
+  .svc-body { padding:18px 16px 20px; text-align:center; }
+  .svc-ic { width:44px; height:44px; margin:-40px auto 10px; position:relative; z-index:2; border-radius:50%; background:#b8892e; color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(184,137,46,.4); border:3px solid #fff; }
+  .svc-ic svg { width:23px; height:23px; }
+  .svc h3 { font-size:17px; font-weight:normal; margin-bottom:7px; color:#14100c; }
+  .svc p { font-family:Arial,sans-serif; font-size:13.5px; line-height:1.55; opacity:.82; }
+
+  /* ---------- ABOUT / GALLERY ---------- */
+  .aboutgrid { display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:stretch; }
+  @media (max-width:700px){ .aboutgrid{ grid-template-columns:1fr; } }
+  .aboutgrid img { width:100%; height:100%; min-height:230px; object-fit:cover; border-radius:16px; display:block; box-shadow:0 6px 22px rgba(20,16,12,.14); }
+  .aboutgrid img.side { height:262px; min-height:0; margin-bottom:14px; }
+  .abouttxt { font-size:16.5px; line-height:1.65; }
+  .abouttxt p + p { margin-top:12px; }
+  .galgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px; margin-top:18px; }
+  .gal { position:relative; border-radius:14px; overflow:hidden; box-shadow:0 4px 16px rgba(20,16,12,.12); }
+  .gal img { width:100%; height:170px; object-fit:cover; display:block; }
+  .gal span { position:absolute; left:0; right:0; bottom:0; padding:20px 12px 9px; color:#fff; font-family:Arial,sans-serif; font-size:12.5px; font-weight:bold; letter-spacing:.03em; background:linear-gradient(transparent, rgba(10,7,4,.82)); }
+
+  /* ---------- REVIEWS ---------- */
+  .review { text-align:center; background:#ffffff; border-top:1px solid #e3d9c6; border-bottom:1px solid #e3d9c6; max-width:none; }
+  .review .inner { max-width:860px; margin:0 auto; }
+  .qmark { font-size:54px; color:#b8892e; line-height:.6; margin-bottom:12px; }
+  .rstars { color:#e8a812; font-size:21px; letter-spacing:3px; margin-bottom:12px; }
+  .rtext { font-size:19px; font-style:italic; line-height:1.55; max-width:760px; margin:0 auto; }
+  .rname { font-family:Arial,sans-serif; font-size:13px; margin-top:14px; opacity:.75; }
+
+  /* ---------- VISIT ---------- */
+  .hrow { display:flex; justify-content:space-between; font-family:Arial,sans-serif; font-size:14px; padding:7px 2px; border-bottom:1px dashed #e3d9c6; }
+  .contact { text-align:center; }
+  .contact .addr { font-family:Arial,sans-serif; font-size:15px; margin-bottom:8px; }
+  .contact .note { font-family:Arial,sans-serif; font-size:14px; opacity:.8; max-width:460px; margin:10px auto 0; line-height:1.55; }
+  .bigcall { display:inline-flex; align-items:center; gap:9px; background:#b8892e; color:#fff; text-decoration:none; padding:15px 30px; border-radius:999px; font-family:Arial,sans-serif; font-size:18px; font-weight:bold; margin-top:14px; box-shadow:0 6px 18px rgba(184,137,46,.35); }
+  .bigcall svg { width:20px; height:20px; }
+  .ctaband { position:relative; overflow:hidden; text-align:center; color:#fff; padding:44px 22px;
+    background:#14100c url('assets/gen-studio-interior.jpg') center/cover no-repeat; }
+  .ctaband::before { content:''; position:absolute; inset:0; background:rgba(12,8,4,.74); }
+  .ctaband > * { position:relative; z-index:1; }
+  .ctaband h2 { color:#fff; }
+  .ctaband p { font-family:Arial,sans-serif; font-size:15px; opacity:.92; }
+  footer { text-align:center; padding:22px; font-family:Arial,sans-serif; font-size:12px; opacity:.95; background:#14100c; color:#fff; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+
+  /* ---------- AI CHATBOT ---------- */
+  .chatfab { position:fixed; right:18px; bottom:18px; z-index:60; display:flex; align-items:center; gap:9px;
+    background:#14100c; color:#fff; border:2px solid #b8892e; border-radius:999px; padding:12px 18px 12px 14px;
+    font-family:Arial,sans-serif; font-size:14px; font-weight:bold; cursor:pointer;
+    box-shadow:0 10px 28px rgba(10,7,4,.45); }
+  .chatfab svg { width:22px; height:22px; flex:none; }
+  .chatfab .dot { width:9px; height:9px; border-radius:50%; background:#3ddc74; flex:none; box-shadow:0 0 0 3px rgba(61,220,116,.25); }
+  .chatfab:hover { background:#2a2115; }
+  @media (max-width:480px){ .chatfab .fabtxt{ display:none; } .chatfab{ padding:14px; border-radius:50%; } }
+  .chatpanel { position:fixed; right:18px; bottom:86px; z-index:61; width:362px; max-width:calc(100vw - 24px);
+    height:548px; max-height:calc(100dvh - 108px); background:#fff; border-radius:18px; overflow:hidden;
+    box-shadow:0 24px 60px rgba(10,7,4,.5); display:none; flex-direction:column;
+    font-family:Arial,sans-serif; border:1px solid #e3d9c6; }
+  .chatpanel.open { display:flex; }
+  @media (max-width:480px){ .chatpanel{ right:12px; bottom:80px; } }
+  .chathead { background:#14100c; color:#fff; padding:13px 15px; display:flex; align-items:center; gap:11px; flex:none; }
+  .chatava { width:38px; height:38px; border-radius:50%; background:#b8892e; display:flex; align-items:center; justify-content:center; flex:none; }
+  .chatava svg { width:21px; height:21px; }
+  .chathead .ct { font-size:14.5px; font-weight:bold; line-height:1.25; }
+  .chathead .cs { font-size:11.5px; opacity:.85; display:flex; align-items:center; gap:5px; }
+  .chathead .cs i { width:7px; height:7px; border-radius:50%; background:#3ddc74; display:inline-block; }
+  .chatx { margin-left:auto; background:none; border:none; color:#fff; font-size:21px; line-height:1; cursor:pointer; padding:4px 6px; opacity:.9; }
+  .chatmsgs { flex:1; overflow-y:auto; padding:14px 12px; background:#f3ecdf; display:flex; flex-direction:column; gap:9px; }
+  .msg { max-width:86%; padding:10px 13px; border-radius:15px; font-size:13.8px; line-height:1.5; }
+  .msg.bot { background:#fff; color:#241d16; border:1px solid #e3d9c6; border-bottom-left-radius:5px; align-self:flex-start; box-shadow:0 2px 8px rgba(20,16,12,.06); }
+  .msg.user { background:#b8892e; color:#fff; border-bottom-right-radius:5px; align-self:flex-end; }
+  .msg p + p { margin-top:7px; }
+  .msg ul { margin:6px 0 2px 16px; }
+  .msg li { margin-bottom:4px; }
+  .msg .callink { display:inline-flex; align-items:center; gap:6px; margin-top:9px; background:#b8892e; color:#fff;
+    text-decoration:none; font-weight:bold; font-size:13.5px; padding:9px 15px; border-radius:999px; }
+  .msg .callink svg { width:14px; height:14px; }
+  .msg.typing { display:flex; gap:5px; padding:13px 15px; }
+  .msg.typing span { width:7px; height:7px; border-radius:50%; background:#c9b892; animation:tblink 1.1s infinite; }
+  .msg.typing span:nth-child(2){ animation-delay:.18s; } .msg.typing span:nth-child(3){ animation-delay:.36s; }
+  @keyframes tblink { 0%,80%,100%{ opacity:.3; transform:translateY(0);} 40%{ opacity:1; transform:translateY(-2px);} }
+  .chatchips { flex:none; display:flex; flex-wrap:wrap; gap:7px; padding:10px 12px 4px; background:#f3ecdf; }
+  .chip { background:#fff; border:1.5px solid #14100c; color:#14100c; border-radius:999px; padding:7px 12px;
+    font-size:12.5px; font-weight:bold; cursor:pointer; font-family:Arial,sans-serif; }
+  .chip:hover { background:#14100c; color:#fff; }
+  .chip.hot { border-color:#b8892e; color:#8a6414; }
+  .chip.hot:hover { background:#b8892e; color:#fff; }
+  .chatin { flex:none; display:flex; gap:8px; padding:10px 12px 12px; background:#f3ecdf; }
+  .chatin input { flex:1; border:1.5px solid #d8cbae; border-radius:999px; padding:11px 15px; font-size:14px;
+    font-family:Arial,sans-serif; outline:none; background:#fff; min-width:0; }
+  .chatin input:focus { border-color:#b8892e; }
+  .chatin button { flex:none; width:42px; height:42px; border-radius:50%; border:none; background:#b8892e; color:#fff;
+    cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .chatin button svg { width:19px; height:19px; }
+</style>
+</head>
+<body>
+  <div class="topbar"><div class="brand">Stigma Tattoo Bar</div><a class="callbtn" href="tel:+14072033168"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg> (407) 203-3168</a></div>
+  <nav class="icons">
+    <a href="#top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Home</a>
+    <a href="#services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Services</a>
+    <a href="#about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>About</a>
+    <a href="#reviews"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>Reviews</a>
+    <a href="#visit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Visit</a>
+  </nav>
+
+  <!-- HERO — KC Campbell's review at the top, artist-at-work photo below -->
+  <div class="hero" id="top">
+    <div class="hero-in">
+      <div class="herorev"><div class="hr-stars">★★★★★</div><p class="hr-text">Such a great experience! Ernie did a wonderful job with this fairly simple piece but executed it to perfection and has such a delightfully light hand. I would absolutely come back again. The bartenders are also incredibly on top of it and the vibe feels safe for ladies but still a party.</p><p class="hr-name">— KC Campbell, Google review</p></div>
+      <h1>Stigma Tattoo Bar</h1>
+      <p class="tag">Tattoos and a full bar — Downtown Orlando</p>
+      <div class="ratepill"><span class="st">★★★★★</span> 4.8 · 152 Google reviews</div>
+      <div class="heroimg"><img src="assets/gen-hero-artist.jpg" alt="Tattoo artist at work inside Stigma Tattoo Bar"></div>
+    </div>
+  </div>
+
+  <!-- SERVICES — one photo per service -->
+  <section id="services">
+    <h2>Services</h2>
+    <p class="sub">Eight artists, one shop — and a full bar while you are here.</p>
+    <div class="svcgrid">
+      <div class="svc">
+        <div class="svcimg"><img src="assets/gen-custom-tattoo.jpg" alt="Artist creating a detailed custom tattoo" loading="lazy"></div>
+        <div class="svc-body">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></div>
+          <h3>Custom Tattoos</h3>
+          <p>One-of-a-kind pieces designed with one of the shop's eight artists — bring your idea and leave with original art made just for you.</p>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="svcimg"><img src="assets/gen-flash-wall.jpg" alt="Flash art wall inside the shop" loading="lazy"></div>
+        <div class="svc-body">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <h3>Walk-In Tattoos</h3>
+          <p>Walk-ins are welcome when chairs are open — pick a design off the flash wall or bring a small piece and get in the chair.</p>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="svcimg"><img src="assets/gen-bar-lounge.jpg" alt="Full bar and lounge inside Stigma Tattoo Bar" loading="lazy"></div>
+        <div class="svc-body">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h14l-6.2 7.2a2 2 0 0 1-1.6 0L5 3z"/><path d="M12 12v6"/><path d="M8 21h8"/><path d="M12 18v3"/></svg></div>
+          <h3>Full Bar &amp; Lounge</h3>
+          <p>A full bar right inside the shop — grab a drink, hang in the lounge, and enjoy the vibe while you wait or celebrate the new piece.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT — studio interior band photo -->
+  <div class="bandimg" aria-hidden="true"><img src="assets/gen-bar-lounge.jpg" alt="" loading="lazy"></div>
+  <section id="about">
+    <h2>About Stigma Tattoo Bar</h2>
+    <p class="sub">A tattoo shop and a bar under one roof, right on Orange Ave.</p>
+    <div class="aboutgrid">
+      <img src="assets/gen-studio-interior.jpg" alt="Inside the Stigma Tattoo Bar studio" loading="lazy">
+      <div>
+        <img class="side" src="assets/gen-portfolio-closeup.jpg" alt="Close-up of a finished tattoo" loading="lazy">
+        <div class="abouttxt">
+          <p>Stigma Tattoo Bar pairs a working tattoo studio with a full bar in Downtown Orlando. Eight artists cover the chairs, so whether you booked a custom piece weeks out or walked in on a whim, there is an artist who fits your idea.</p>
+          <p>One booking flow covers the whole shop: call once, talk through your piece, and the team will match you with the right artist, walk you through the consult and deposit, and get you on the books.</p>
+        </div>
+      </div>
+    </div>
+    <div class="galgrid">
+      <div class="gal"><img src="assets/gen-custom-tattoo.jpg" alt="Artist creating a detailed custom tattoo" loading="lazy"><span>Custom Tattoos</span></div>
+      <div class="gal"><img src="assets/gen-flash-wall.jpg" alt="Flash art wall inside the shop" loading="lazy"><span>Walk-In Tattoos</span></div>
+      <div class="gal"><img src="assets/gen-bar-lounge.jpg" alt="Full bar and lounge inside Stigma Tattoo Bar" loading="lazy"><span>Full Bar &amp; Lounge</span></div>
+    </div>
+  </section>
+
+  <!-- REVIEWS — portfolio close-up band photo -->
+  <div class="bandimg" aria-hidden="true"><img src="assets/gen-portfolio-closeup.jpg" alt="" loading="lazy"></div>
+  <section class="review" id="reviews">
+    <div class="inner">
+      <div class="qmark">&ldquo;</div>
+      <div class="rstars">★★★★★</div>
+      <p class="rtext">Such a great experience! Ernie did a wonderful job with this fairly simple piece but executed it to perfection and has such a delightfully light hand. I would absolutely come back again. The bartenders are also incredibly on top of it and the vibe feels safe for ladies but still a party.</p>
+      <p class="rname">— KC Campbell, Google review</p>
+    </div>
+  </section>
+
+  <!-- VISIT — flash wall band photo -->
+  <div class="bandimg" aria-hidden="true"><img src="assets/gen-flash-wall.jpg" alt="" loading="lazy"></div>
+  <section id="visit" class="contact">
+    <h2>Visit or Call</h2>
+    <p class="addr">17 S Orange Ave, Orlando, FL 32801</p>
+    <p class="note">Hours are not posted online — call the shop for today's hours and current walk-in availability.</p>
+    <a class="bigcall" href="tel:+14072033168"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg> Call (407) 203-3168</a>
+  </section>
+
+  <div class="ctaband">
+    <h2>Ready for your next piece?</h2>
+    <p>Book a consult, ask about a deposit, or check walk-in chairs — one call covers all eight artists.</p>
+    <a class="bigcall" href="tel:+14072033168"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg> Call (407) 203-3168</a>
+  </div>
+  <footer>Sample homepage concept prepared for Stigma Tattoo Bar · Built by Pinnacle Tech, Orlando FL</footer>
+
+  <!-- AI CHATBOT -->
+  <button class="chatfab" id="chatFab" aria-label="Chat with the Stigma Tattoo Bar assistant">
+    <span class="dot" aria-hidden="true"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3c-1.5 0-3-.4-4.2-1.1L3 20l1.4-5.1A8.3 8.3 0 0 1 3 11.5 8.4 8.4 0 0 1 11.5 3h1A8.4 8.4 0 0 1 21 11.5z"/></svg>
+    <span class="fabtxt">Chat with us</span>
+  </button>
+  <div class="chatpanel" id="chatPanel" role="dialog" aria-label="Chat with the Stigma Tattoo Bar assistant">
+    <div class="chathead">
+      <div class="chatava"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></div>
+      <div>
+        <div class="ct">Stigma Tattoo Bar</div>
+        <div class="cs"><i></i> Assistant · replies instantly</div>
+      </div>
+      <button class="chatx" id="chatClose" aria-label="Close chat">&times;</button>
+    </div>
+    <div class="chatmsgs" id="chatMsgs"></div>
+    <div class="chatchips" id="chatChips">
+      <button class="chip" data-q="What services do you offer?">Our services</button>
+      <button class="chip" data-q="How do I book a consult?">Book a consult</button>
+      <button class="chip" data-q="Do you take walk-ins?">Walk-ins?</button>
+      <button class="chip hot" data-q="My new tattoo looks irritated — what should I do?">Aftercare concern</button>
+      <button class="chip" data-q="What are your hours?">Hours</button>
+    </div>
+    <form class="chatin" id="chatForm">
+      <input id="chatInput" type="text" placeholder="Ask about services, booking, walk-ins…" autocomplete="off" aria-label="Type your message">
+      <button type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg></button>
+    </form>
+  </div>
+
+<script>
+/* ============================================================
+   STIGMA TATTOO BAR — on-page assistant (client-side only, no
+   external calls). Loaded with the shop's services, booking /
+   consult / deposit flow, walk-in guidance and aftercare
+   routing. Always steers back to calling the shop.
+   ============================================================ */
+(function () {
+  var TEL = 'tel:+14072033168';
+  var PHONE = '(407) 203-3168';
+  var callBtn = '<a class="callink" href="' + TEL + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg> Call the shop — ' + PHONE + '</a>';
+
+  var SERVICES = [
+    { name: 'Custom Tattoos', desc: 'One-of-a-kind pieces designed with one of the shop\'s eight artists — bring your idea and leave with original art made just for you.' },
+    { name: 'Walk-In Tattoos', desc: 'Walk-ins are welcome when chairs are open — pick a design off the flash wall or bring a small piece and get in the chair.' },
+    { name: 'Full Bar & Lounge', desc: 'A full bar right inside the shop — grab a drink, hang in the lounge, and enjoy the vibe while you wait or celebrate the new piece.' }
+  ];
+
+  function svcList() {
+    var h = '<p>Here\'s what we do at Stigma Tattoo Bar:</p><ul>';
+    for (var i = 0; i < SERVICES.length; i++) h += '<li><strong>' + SERVICES[i].name + '</strong> — ' + SERVICES[i].desc + '</li>';
+    return h + '</ul><p>Want to get started? One call covers booking for all eight artists.</p>' + callBtn;
+  }
+  function svcOne(i, extra) {
+    return '<p><strong>' + SERVICES[i].name + '</strong> — ' + SERVICES[i].desc + '</p>' +
+      (extra ? '<p>' + extra + '</p>' : '') +
+      '<p>The fastest way to set it up is a quick call:</p>' + callBtn;
+  }
+
+  var ANSWERS = {
+    aftercare: '<p><strong>Let\'s play it safe with that.</strong> Some redness and tenderness while a tattoo heals can be normal, but I can\'t diagnose anything — and if you\'re seeing spreading redness, swelling, heat, oozing, or fever, please don\'t wait on it.</p>' +
+      '<p>Call the shop right away so your artist can advise you, and if the symptoms feel serious or get worse, seek medical care promptly.</p>' + callBtn,
+    booking: '<p>Easy — booking runs through one flow for the whole shop. Call us and we\'ll talk through your idea, match you with the right artist out of our eight, set up a consult, and explain the deposit that holds your appointment.</p>' +
+      '<p>Consults, deposits, and scheduling all happen on that one call:</p>' + callBtn,
+    walkin: '<p>Yes — <strong>walk-ins are welcome when chairs are open</strong>. Availability changes through the day, so the smart move is to call ahead and check what\'s open right now, then head over to 17 S Orange Ave.</p>' + callBtn,
+    price: '<p>Good question — pricing depends on the piece: size, detail, placement, and which artist you work with, and larger custom work usually starts with a consult and a deposit. The shop can give you a straight answer once they hear the idea.</p>' +
+      '<p>Two minutes on the phone gets you real numbers:</p>' + callBtn,
+    hours: '<p>Our hours aren\'t posted online, and they can shift with events downtown — the reliable move is to call the shop for today\'s hours and current walk-in availability.</p>' + callBtn,
+    address: '<p>We\'re at <strong>17 S Orange Ave, Orlando, FL 32801</strong> — right in Downtown Orlando. Tattoos up front, full bar in the shop.</p>' +
+      '<p>Planning a visit? Call ahead for walk-in chairs:</p>' + callBtn,
+    reviews: '<p>Guests rate us <strong>4.8 stars across 152 Google reviews</strong>. Here\'s a recent favorite, from KC Campbell:</p>' +
+      '<p><em>"Such a great experience! Ernie did a wonderful job with this fairly simple piece but executed it to perfection and has such a delightfully light hand. I would absolutely come back again. The bartenders are also incredibly on top of it and the vibe feels safe for ladies but still a party."</em></p>' +
+      '<p>Want an experience like that? One call:</p>' + callBtn,
+    artists: '<p>We\'ve got <strong>eight artists</strong> covering the chairs, across a range of styles. Tell the shop what you\'re picturing and they\'ll match you with the artist who fits the piece — that matching happens on the booking call.</p>' + callBtn,
+    bar: '<p>Yep — it\'s in the name. Alongside the tattoo chairs there\'s a <strong>full bar and lounge</strong>, so your crew can grab a drink and hang while you get your piece.</p>' +
+      '<p>Come see it in person:</p>' + callBtn,
+    call: '<p>You got it — one number reaches the whole shop, artists and bar alike. Tap below:</p>' + callBtn,
+    greeting: '<p>Hey there! Good to meet you. I can walk you through our services, how booking and deposits work, or whether walk-in chairs are open — or tap <strong>"Aftercare concern"</strong> below if a fresh piece is worrying you.</p><p>Fastest path is always a quick call to the shop:</p>' + callBtn,
+    thanks: '<p>Anytime — that\'s what we\'re here for. Hope to see you in a chair (or at the bar) soon.</p>' + callBtn,
+    fallback: '<p>Good question — that one\'s best answered by the shop directly so you get the exact right info for your piece. They\'re friendly and straight with answers.</p>' + callBtn
+  };
+
+  function has(t, words) { for (var i = 0; i < words.length; i++) { if (t.indexOf(words[i]) > -1) return true; } return false; }
+
+  function answer(raw) {
+    var t = ' ' + raw.toLowerCase().replace(/[^a-z0-9 ]/g, ' ') + ' ';
+    if (has(t, [' aftercare ', ' healing ', ' heal ', ' infected ', ' infection ', ' irritated ', ' irritation ', ' redness ', ' swollen ', ' swelling ', ' oozing ', ' fever ', ' hurts ', ' pain ', ' emergency ', ' urgent '])) return ANSWERS.aftercare;
+    if (has(t, [' walk in ', ' walk ins ', ' walkin ', ' walkins ', ' walk '])) return ANSWERS.walkin;
+    if (has(t, [' book ', ' booking ', ' appointment ', ' consult ', ' consultation ', ' deposit ', ' schedule ', ' reserve '])) return ANSWERS.booking;
+    if (has(t, [' price ', ' cost ', ' how much ', ' quote ', ' charge ', ' rate '])) return ANSWERS.price;
+    if (has(t, [' custom '])) return svcOne(0, 'Custom work starts with a consult so the design is right before any ink.');
+    if (has(t, [' bar ', ' drink ', ' drinks ', ' lounge ', ' alcohol ', ' cocktail '])) return ANSWERS.bar;
+    if (has(t, [' artist ', ' artists ', ' who does ', ' ernie '])) return ANSWERS.artists;
+    if (has(t, [' service ', ' services ', ' offer ', ' do you do ', ' what do you ', ' tattoo ', ' tattoos ', ' ink '])) return svcList();
+    if (has(t, [' hour ', ' hours ', ' open ', ' when ', ' close ', ' closing '])) return ANSWERS.hours;
+    if (has(t, [' address ', ' located ', ' location ', ' where ', ' directions ', ' downtown '])) return ANSWERS.address;
+    if (has(t, [' review ', ' rating ', ' stars ', ' good ', ' trust ', ' reputation '])) return ANSWERS.reviews;
+    if (has(t, [' call ', ' phone ', ' number ', ' talk ', ' speak '])) return ANSWERS.call;
+    if (has(t, [' thank ', ' thanks ', ' great ', ' awesome '])) return ANSWERS.thanks;
+    if (has(t, [' hello ', ' hi ', ' hey ', ' yo '])) return ANSWERS.greeting;
+    return ANSWERS.fallback;
+  }
+
+  var fab = document.getElementById('chatFab');
+  var panel = document.getElementById('chatPanel');
+  var msgs = document.getElementById('chatMsgs');
+  var form = document.getElementById('chatForm');
+  var input = document.getElementById('chatInput');
+  var greeted = false;
+
+  function scrollDown() { msgs.scrollTop = msgs.scrollHeight; }
+  function addMsg(cls, html) {
+    var d = document.createElement('div');
+    d.className = 'msg ' + cls;
+    d.innerHTML = html;
+    msgs.appendChild(d);
+    scrollDown();
+    return d;
+  }
+  function botReply(html) {
+    var t = addMsg('bot typing', '<span></span><span></span><span></span>');
+    setTimeout(function () {
+      t.classList.remove('typing');
+      t.innerHTML = html;
+      scrollDown();
+    }, 550);
+  }
+  function send(text) {
+    var clean = (text || '').trim();
+    if (!clean) return;
+    addMsg('user', clean.replace(/</g, '&lt;'));
+    botReply(answer(clean));
+  }
+  function openChat() {
+    panel.classList.add('open');
+    if (!greeted) {
+      greeted = true;
+      botReply('<p>Hi! I can help with questions about <strong>Stigma Tattoo Bar</strong> — our services, booking a consult, deposits, walk-ins, and aftercare concerns. What can I do for you?</p>');
+    }
+    setTimeout(function () { input.focus(); }, 80);
+  }
+  function closeChat() { panel.classList.remove('open'); }
+
+  fab.addEventListener('click', function () { panel.classList.contains('open') ? closeChat() : openChat(); });
+  document.getElementById('chatClose').addEventListener('click', closeChat);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeChat(); });
+  form.addEventListener('submit', function (e) { e.preventDefault(); send(input.value); input.value = ''; });
+  var chips = document.querySelectorAll('#chatChips .chip');
+  for (var i = 0; i < chips.length; i++) {
+    chips[i].addEventListener('click', function () { send(this.getAttribute('data-q')); });
+  }
+})();
+</script>
+</body>
+</html>
